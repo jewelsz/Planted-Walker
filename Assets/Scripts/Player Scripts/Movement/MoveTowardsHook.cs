@@ -25,6 +25,7 @@ public class MoveTowardsHook : MonoBehaviour
     {
         if (movement.movingDisabled && activateMove)
         {
+            Physics2D.gravity = Vector2.zero;
             float step = speed * Time.deltaTime;
             Vector3 targetDir = hook.transform.position;
             Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);

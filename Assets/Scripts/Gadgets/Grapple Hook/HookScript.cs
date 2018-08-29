@@ -14,6 +14,8 @@ public class HookScript : MonoBehaviour
         thisDestroy = true;
 	}
 	
+    //Check if bullet hits planet
+    //If planet -> setposition()
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.tag == "Planet")
@@ -23,6 +25,7 @@ public class HookScript : MonoBehaviour
         }
     }
 
+    //Freeze bullet position. No destroy
     private void setPosition()
     {
         //transform.Translate(transform.position);
