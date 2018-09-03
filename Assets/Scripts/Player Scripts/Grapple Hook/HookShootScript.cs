@@ -56,6 +56,9 @@ public class HookShootScript : MonoBehaviour
             bulletSpawn.position,
             bulletSpawn.rotation);
 
+        // Send the gameobject to the MoveTowardsHook script
+        moveToHook.setHook(bullet);
+
         // Change bullet rotation to match camera look rotation
         bullet.transform.eulerAngles = new Vector3(cameraRotation.x - 1, cameraRotation.y, cameraRotation.z);
 
@@ -67,6 +70,11 @@ public class HookShootScript : MonoBehaviour
         {
             Destroy(bullet, 10.0f);
         }
+    }
+
+    public void destroyBullet()
+    {
+        Destroy(bullet);
     }
     
     void getCameraRotation()

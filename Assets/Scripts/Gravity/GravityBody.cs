@@ -7,12 +7,15 @@ public class GravityBody : MonoBehaviour
     private GravityAttractor attractor;
     private Transform myTransform;
     public Rigidbody rb;
+    MoveTowardsHook moveTowardshook;
+    bool disable;
 
     void Start ()
     {
         rb.constraints = RigidbodyConstraints.FreezeRotation;
         rb.useGravity = false;
         myTransform = transform;
+        disable = false;
     }
 	
 	void Update ()
@@ -26,5 +29,15 @@ public class GravityBody : MonoBehaviour
         {
             attractor = collision.gameObject.GetComponent<GravityAttractor>();
         }
+    }
+
+    public void disableGravity()
+    {
+        disable = true;
+    }
+
+    public void enableGravity()
+    {
+        disable = false;
     }
 }
